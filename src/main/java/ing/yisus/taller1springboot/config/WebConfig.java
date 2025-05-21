@@ -1,4 +1,4 @@
-package ing.yisus.taller1springboot;
+package ing.yisus.taller1springboot.config;
 
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -11,8 +11,8 @@ public class WebConfig {
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        ;return builder
-                .rootUri("https://fakestoreapi.com")
+        return builder
+                .rootUri("https://fakestoreapi.com/")
                 .build();
     }
 }
