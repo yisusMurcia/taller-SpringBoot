@@ -1,19 +1,22 @@
-package ing.yisus.taller1springboot.model;
+package ing.yisus.taller1springboot.dto;
+
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Product {
+public class ProductDto {
+    private long id;
     private String title;
+    private BigDecimal price;
     private String description;
-    private String image;
     private String category;
-    private String price;
-    private int id;
+    private String image;
 }
