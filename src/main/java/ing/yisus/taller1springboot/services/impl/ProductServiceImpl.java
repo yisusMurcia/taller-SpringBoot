@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements IProductService {
+
     private final RestTemplate restTemplate;
     //Save the product list in an array
     private ArrayList<Product> products;
@@ -24,7 +25,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<ProductDto> getAllProducts() {
-        ProductDto[] products = restTemplate.getForObject("/products", ProductDto[].class);
+        ProductDto[] products = restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
         return List.of(products);
     }
 }

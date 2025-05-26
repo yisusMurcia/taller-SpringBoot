@@ -1,17 +1,20 @@
 package ing.yisus.taller1springboot.control;
 
 
+import ing.yisus.taller1springboot.dto.UserDTO;
 import org.springframework.ui.Model;
-import ing.yisus.taller1springboot.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import ing.yisus.taller1springboot.services.impl.UserServiceImpl;
+
 @Controller
 public class BienvenidaController {
+
     @GetMapping("/bienvenida")
-    public String bienvenida(Model modelo) {
-        User user = new User();
-        modelo.addAttribute("user", user);
-        //modelo.addText("user");
+    public String bienvenida(@RequestParam String username, Model modelo) {
+
+        modelo.addAttribute("username",username);
         return "bienvenida";
     }
 }
