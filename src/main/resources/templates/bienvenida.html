@@ -7,11 +7,15 @@
     <body>
     <h1>¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
         <h2>Revisa nuestro catálogo</h2>
-            <div th:each="producto : ${products}">
-                <p th:text="${producto.getTitle()}">Nombre del producto</p>
-                <p th:text="${producto.getDescription()}">Descripción del producto</p>
-                <p th:text="${producto.getPrice()}">Precio del producto</p>
-                <img th:src="@{${producto.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+            <div th:each="cart : ${carts}">
+                <h3 th:text="Carrito+ ' '  + ${carts.indexOf(cart) + 1}+':'">Productos en tu carrito:</h3>
+                <div th:each="product    : ${cart}">
+                    <h4 th:text="${product.getTitle()}">Nombre del producto</h4>
+                    <p th:text="Cantidad + ': ' + ${product.getQuantity()}">Cantidad del producto</p>
+                    <p th:text="${product.getDescription()}">Descripción del producto</p>
+                    <strong th:text="${product.getPrice()}">Precio del producto</strong>
+                    <img th:src="@{${product.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+                </div>
             </div>
     </body>
 </html>

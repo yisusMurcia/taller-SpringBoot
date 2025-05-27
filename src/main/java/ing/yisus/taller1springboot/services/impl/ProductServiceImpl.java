@@ -16,7 +16,7 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public ProductDto getProductById(long productId) {
         ProductDto product = restTemplate.getForObject("/products/{productId}", ProductDto.class, productId);
-        return null;
+        return product;
     }
 
     @Override
