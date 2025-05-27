@@ -1,6 +1,6 @@
 package ing.yisus.taller1springboot.control;
 
-import ing.yisus.taller1springboot.dto.UserDTO;
+import ing.yisus.taller1springboot.dto.UserDto;
 import ing.yisus.taller1springboot.services.impl.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ public class LoginController {
     @RequestMapping("/login")
     public String logIn(@RequestParam String username, @RequestParam String password, Model model){
 
-        UserDTO[] users = UserServiceImpl.getUsers();
+        UserDto[] users = UserServiceImpl.getUsers();
         long userRequired = UserServiceImpl.filterUsers(users,password,username);
         if(userRequired != 0 ){
             model.addAttribute("username",username);

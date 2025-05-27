@@ -1,11 +1,11 @@
 package ing.yisus.taller1springboot.services;
 
-import ing.yisus.taller1springboot.dto.UserDTO;
+import ing.yisus.taller1springboot.dto.UserDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IUserService {
-    Optional<UserDTO> getUser(long userId);
-    List<UserDTO> getAllUsers();
+    Optional<UserDto> getUser(long userId);
+    List<UserDto> getAllUsers();
 }
