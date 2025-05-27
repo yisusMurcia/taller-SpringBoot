@@ -5,15 +5,12 @@
     <title>product view</title>
 </head>
 <body>
-<!--
 <div th:fragment="productHtml(product)">
-    <h2 th:text="${product.title}"></h2>
+    <h2 th:text="${product.getTitle()}"></h2>
     <p th:text="${product.getDescrpition()}"></p>
     <p>Precio: <span th:text="${product.getPrice()}"></span></p>
     <p>Categoria: <span th:text="${product.getCategory()}"></span></p>
     <img th:src="@{${product.image}}" alt="Product Image" style="max-width: 200px; max-height: 200px;">
 </div>
--->
-<h1>Bienvenido <span th:text="${product.title}"> </span></h1>
 </body>
 </html>

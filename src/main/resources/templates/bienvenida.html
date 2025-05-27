@@ -7,11 +7,11 @@
     <body>
     <h1>¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
         <h2>Revisa nuestro catálogo</h2>
-            <div th:each="producto : ${products}">
-                <p th:text="${producto.getTitle()}">Nombre del producto</p>
-                <p th:text="${producto.getDescription()}">Descripción del producto</p>
-                <p th:text="${producto.getPrice()}">Precio del producto</p>
-                <img th:src="@{${producto.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+            <div th:each="product : ${products}">
+                <p th:text="${product.getTitle()}">Nombre del producto</p>
+                <p th:text="${product.getDescription()}">Descripción del producto</p>
+                <p th:text="${product.getPrice()}">Precio del producto</p>
+                <img th:src="@{${product.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
             </div>
     </body>
 </html>
