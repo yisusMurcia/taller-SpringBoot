@@ -1,7 +1,6 @@
 package ing.yisus.taller1springboot.control;
 
 import ing.yisus.taller1springboot.model.User;
-import ing.yisus.taller1springboot.dto.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +11,6 @@ public class UserController {
 
     @GetMapping("/login")
     public String index(Model model) {
-        model.addAttribute("user", new User());
-        return "login";
-    }
-    @PostMapping
-    public String login() {
         return "login";
     }
 }

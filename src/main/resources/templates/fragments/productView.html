@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>product view</title>
 </head>
 <body>
-$END$
+<!--
+<div th:fragment="productHtml(product)">
+    <h2 th:text="${product.title}"></h2>
+    <p th:text="${product.getDescrpition()}"></p>
+    <p>Precio: <span th:text="${product.getPrice()}"></span></p>
+    <p>Categoria: <span th:text="${product.getCategory()}"></span></p>
+    <img th:src="@{${product.image}}" alt="Product Image" style="max-width: 200px; max-height: 200px;">
+</div>
+-->
+<h1>Bienvenido <span th:text="${product.title}"> </span></h1>
 </body>
 </html>
