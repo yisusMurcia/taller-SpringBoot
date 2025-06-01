@@ -23,18 +23,19 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String logIn(@RequestParam String username, @RequestParam String password, Model model, RedirectAttributes redirectAttributes){
+    public String logIn(@RequestParam String username, @RequestParam String password, Model model, RedirectAttributes redirectAttributes) {
 
         UserDto[] users = UserServiceImpl.getUsers();
-        long userRequired = UserServiceImpl.filterUsers(users,password,username);
-        if(userRequired != 0 ){
-            redirectAttributes.addAttribute("username",username);
+        long userRequired = UserServiceImpl.filterUsers(users, password, username);
+        System.out.println(userRequired);
+        if (userRequired != 0) {
+            redirectAttributes.addAttribute("username", username);
             redirectAttributes.addAttribute("userId", userRequired);
             return "redirect:/bienvenida";
 
-        }else {
-            model.addAttribute("error","Usuario o contraseña incorrectos");
-            return "login";
+        } else {
+            model.addAttribute("error", "Usuario o contraseña incorrectos");
+            return index(model);
         }
     }
 }
