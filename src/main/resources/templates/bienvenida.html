@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="https://www.thymeleaf.org">
-    <head>
+<head>
     <meta charset="UTF-8">
     <title>Página principal</title>
-    </head>
-    <body>
-    <h1>¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
-    <br>
-    <h2>Tus carritos</h2>
-    <div th:each="cart : ${carts}">
-        <h3 th:text="Carrito+ ' '  + ${carts.indexOf(cart) + 1}+':'">Productos en tu carrito:</h3>
-        <div th:each="product    : ${cart}">
-            <h3 th:text="${product.getTitle()}">Nombre del producto</h3>
-            <p th:text="Cantidad + ':' + ${product.getQuantity()}">Cantidad del producto</p>
-            <p th:text="${product.getDescription()}">Descripción del producto</p>
-            <strong th:text="${product.getPrice()}">Precio del producto</strong>
-            <img th:src="@{${product.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center mb-5">¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
+
+    <h2 class="mb-4">Tus carritos</h2>
+    <div th:each="cart, stat : ${carts}" class="mb-5">
+        <h3 class="text-primary">Carrito <span th:text="${stat.index + 1}">1</span>:</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col" th:each="product : ${cart}">
+                <div class="card h-100 shadow-sm">
+                    <img th:src="@{${product.getImage()}}" class="card-img-top" alt="Imagen del producto" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product.getTitle()}">Nombre del producto</h5>
+                        <p class="card-text" th:text="'Cantidad: ' + ${product.getQuantity()}">Cantidad</p>
+                        <p class="card-text" th:text="${product.getDescription()}">Descripción</p>
+                    </div>
+                    <div class="card-footer">
+                        <strong class="text-success" th:text="'$' + ${product.getPrice()}">Precio</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
-    <h2>Revisa todos nuestros productos</h2>
-    <div th:each="produtc : ${products}">
-        <h3 th:text="${produtc.getTitle()}">Nombre del producto</h3>
-        <p th:text="${produtc.getDescription()}">Descripción del producto</p>
-        <strong th:text="${produtc.getPrice()}">Precio del producto</strong>
-        <img th:src="@{${produtc.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+
+    <hr class="my-5">
+
+    <h2 class="mb-4">Revisa todos nuestros productos</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" th:each="product : ${products}">
+            <div class="card h-100 shadow-sm">
+                <img th:src="@{${product.getImage()}}" class="card-img-top" alt="Imagen del producto" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${product.getTitle()}">Nombre del producto</h5>
+                    <p class="card-text" th:text="${product.getDescription()}">Descripción del producto</p>
+                </div>
+                <div class="card-footer">
+                    <strong class="text-success" th:text="'$' + ${product.getPrice()}">Precio del producto</strong>
+                </div>
+            </div>
+        </div>
     </div>
-    </body>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
