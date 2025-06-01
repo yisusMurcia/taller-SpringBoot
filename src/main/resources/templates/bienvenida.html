@@ -6,7 +6,9 @@
     </head>
     <body>
     <h1>¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
+
         <h2>Revisa nuestro catálogo</h2>
+
             <div th:each="cart : ${carts}">
                 <h3 th:text="Carrito+ ' '  + ${carts.indexOf(cart) + 1}+':'">Productos en tu carrito:</h3>
                 <div th:each="product    : ${cart}">
