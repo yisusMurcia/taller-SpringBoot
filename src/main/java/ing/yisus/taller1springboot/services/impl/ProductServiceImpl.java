@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements IProductService {
-    private final RestTemplate restTemplate;
+    private static final RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public ProductDto getProductById(long productId) {
@@ -21,8 +21,10 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ProductDto[] getAllProducts() {
-        ProductDto[] products = restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
-        return products;
+        return restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
+    }
+    public static ProductDto[] getProducts(){
+        return restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
     }
     public ProductDto[] getProducts(){
         return restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);

@@ -26,6 +26,7 @@ public class WelcomeController {
     @GetMapping("bienvenida")
     public String bienvenida(Model model, @RequestParam("username") String username, @RequestParam("userId") int userId) {
         List<CartDto> carts = cartService.getCartByUserId(userId);
+
         //Get products from the products info from the cart
         List<List<Product>> listOfCarts = new ArrayList<>();
         for(CartDto cart : carts) {
