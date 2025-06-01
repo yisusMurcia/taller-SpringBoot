@@ -6,16 +6,25 @@
     </head>
     <body>
     <h1>¡Bienvenido, <span th:text="${username}">Usuario</span>!</h1>
-        <h2>Revisa nuestro catálogo</h2>
-            <div th:each="cart : ${carts}">
-                <h3 th:text="Carrito+ ' '  + ${carts.indexOf(cart) + 1}+':'">Productos en tu carrito:</h3>
-                <div th:each="product    : ${cart}">
-                    <h4 th:text="${product.getTitle()}">Nombre del producto</h4>
-                    <p th:text="Cantidad + ': ' + ${product.getQuantity()}">Cantidad del producto</p>
-                    <p th:text="${product.getDescription()}">Descripción del producto</p>
-                    <strong th:text="${product.getPrice()}">Precio del producto</strong>
-                    <img th:src="@{${product.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
-                </div>
-            </div>
+    <br>
+    <h2>Tus carritos</h2>
+    <div th:each="cart : ${carts}">
+        <h3 th:text="Carrito+ ' '  + ${carts.indexOf(cart) + 1}+':'">Productos en tu carrito:</h3>
+        <div th:each="product    : ${cart}">
+            <h3 th:text="${product.getTitle()}">Nombre del producto</h3>
+            <p th:text="Cantidad + ':' + ${product.getQuantity()}">Cantidad del producto</p>
+            <p th:text="${product.getDescription()}">Descripción del producto</p>
+            <strong th:text="${product.getPrice()}">Precio del producto</strong>
+            <img th:src="@{${product.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+        </div>
+    </div>
+    <hr>
+    <h2>Revisa todos nuestros productos</h2>
+    <div th:each="produtc : ${products}">
+        <h3 th:text="${produtc.getTitle()}">Nombre del producto</h3>
+        <p th:text="${produtc.getDescription()}">Descripción del producto</p>
+        <strong th:text="${produtc.getPrice()}">Precio del producto</strong>
+        <img th:src="@{${produtc.getImage()}}" alt="Imagen del producto" style="width: 200px; height: 200px;">
+    </div>
     </body>
 </html>

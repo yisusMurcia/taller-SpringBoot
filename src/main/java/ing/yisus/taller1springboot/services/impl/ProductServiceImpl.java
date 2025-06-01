@@ -24,4 +24,7 @@ public class ProductServiceImpl implements IProductService {
         ProductDto[] products = restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
         return products;
     }
+    public ProductDto[] getProducts(){
+        return restTemplate.getForObject("https://fakestoreapi.com/products", ProductDto[].class);
+    }
 }

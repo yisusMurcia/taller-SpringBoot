@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -44,8 +45,11 @@ public class WelcomeController {
             }
             listOfCarts.add(products);
         }
+
+        ProductDto[] allProducts = productService.getAllProducts();
         model.addAttribute("username", username);
         model.addAttribute("carts", listOfCarts);
+        model.addAttribute("products", allProducts);
         return "bienvenida";
     }
 }
